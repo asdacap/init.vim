@@ -1,13 +1,23 @@
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'cloudhead/neovim-fuzzy'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rsi'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'yuttie/comfortable-motion.vim'
+
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'lifepillar/vim-solarized8'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'tpope/vim-vinegar'
+
+Plug 'lifepillar/vim-solarized8'
 call plug#end()
 
 " Themes
@@ -21,7 +31,7 @@ set path+=**
 set wildmenu
 
 " Fuzzy also need other things to be installed
-nnoremap <C-p> :FuzzyOpen<CR>
+nnoremap <C-p> :Files<CR>
 
 let g:deoplete#enable_at_startup = 1
 " deoplete-go settings
