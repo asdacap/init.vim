@@ -15,6 +15,8 @@ Plug 'yuttie/comfortable-motion.vim'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+
+Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'lifepillar/vim-solarized8'
@@ -38,3 +40,19 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:fuzzy_rootcmds = []
+
+"""""""""""""""""""""
+"""" COMPETE STUFF
+
+map <S-F2> :!g++ -std=c++11 % -o %:r.out<CR>
+map <F2> :!g++ -std=c++11 -DDEBUG -Wfatal-errors % -o %:r.out<CR>
+
+map <F3> :!./%:r.out < %:p:h/input<CR>
+map <S-F3> :!./%:r.out < %:p:h/input \| diff %:p:h/answer - <CR>
+
+map <F4> :!javac -Xlint:unchecked %<CR>
+map <S-F4> :!java -classpath %:p:h Main < %:p:h/input<CR>
+
+map <F5> :!stack runghc % < %:p:h/input <CR>
+map <S-F5> :!stack ghc % -o %:r.out <CR>
+
